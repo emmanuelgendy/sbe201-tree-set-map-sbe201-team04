@@ -20,22 +20,22 @@ WordSet create()
 
 bool isEmpty( WordSet &wset )
 {
-
+    return bst::isEmpty(wset);
 }
 
 int size( WordSet &wset )
 {
-
+    return bst::size(wset);
 }
 
 bool contains( WordSet &wset , std::string item )
 {
-
+    bst::find(wset,item);
 }
 
 void remove( WordSet &wset , std::string to_remove )
 {
-
+    bst::remove(wset,to_remove);
 }
 
 void insert( WordSet &wset , std::string new_item )
