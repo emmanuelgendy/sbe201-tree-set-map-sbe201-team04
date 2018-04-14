@@ -167,7 +167,7 @@ void remove(WordMap &wmap, std::string key)
         }
         else
         {
-            remove(tree->right, data);
+            remove(wmap->right, key);
         }
     }
 }

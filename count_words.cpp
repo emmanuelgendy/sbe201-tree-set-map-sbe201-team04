@@ -19,6 +19,8 @@ int main(int argc, char **argv)
 
         for (int i = 0; i < words.size(); ++i)
         {
+           
+            
             if (map::contain(wMap, words[i]))
             {
                 value(wMap, words[i])++;
@@ -26,13 +28,12 @@ int main(int argc, char **argv)
             else
             { 
                 map::insert(wMap, words[i]);
-                value(wMap, words[i]) ++;
+                value(wMap, words[i])++;
             };
            
-            sumWordsText++;
+            sumWordsText=sumWordsText+1;
         }
-
-        std::cout << "The Sum of All the Words in the File = " << sumWordsText << std::endl;
+         std::cout << "The Sum of All the Words in the File = " << sumWordsText << std::endl;
     }
 
     return 0;
