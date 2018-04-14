@@ -17,7 +17,7 @@ std::string getFileFirstLine( const std::string &filePath )
 {
     std::ifstream f( filePath );
     std::vector< std::string > lines;
-    std::basic_string line;
+    std::string line;
 
     if( f )
         std::getline( f , line );
