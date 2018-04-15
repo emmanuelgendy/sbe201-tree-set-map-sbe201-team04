@@ -40,7 +40,7 @@ int size(Tree node)
 {
     if (!isEmpty(node))
     {
-        return 1 + size(node->right) + size(node->left);
+        return (1 + size(node->right) + size(node->left));
     }
     else
         return 0;
@@ -57,7 +57,7 @@ bool find(Tree tree, std::string item)
         else
             return find(tree->right, item);
     }
-    if (isEmpty(node))
+    if (isEmpty(tree))
     {
         return false;
     }
@@ -65,20 +65,16 @@ bool find(Tree tree, std::string item)
 
 void insert(Tree &tree, std::string item)
 {
+
     if (isEmpty(tree))
-    {
-        tree = BSTNode(item, nullptr, nullptr);
-    }
+        tree = new BSTNode{item, nullptr, nullptr};
     else
     {
         if (item < tree->item)
-        {
             insert(tree->left, item);
-        }
+
         else
-        {
             insert(tree->right, item);
-        }
     }
 }
 
@@ -86,9 +82,9 @@ Tree minNode(Tree tree)
 {
     if (!isEmpty(tree))
     {
-        if (tree->left == null)
+        if (tree->left == nullptr)
         {
-            return tree->item;
+            return tree;
         }
         else
             return minNode(tree->left);
@@ -99,9 +95,9 @@ Tree maxNode(Tree tree)
 {
     if (!isEmpty(tree))
     {
-        if (tree->right == null)
+        if (tree->right == nullptr)
         {
-            return tree->item;
+            return tree ;
         }
         else
             return maxNode(tree->right);
@@ -143,7 +139,7 @@ void remove(Tree &tree, std::string item)
 
 void clear(Tree &tree)
 {
-    bool(!isEmpty(tree))
+    if (!isEmpty(tree))
     {
         clear(tree->left);
         clear(tree->right);
@@ -156,7 +152,7 @@ void preorder(Tree tree)
 {
     if (tree)
     {
-        std::cout << item;
+        std::cout << tree->item;
         preorder(tree->left);
         preorder(tree->right);
     }
@@ -167,7 +163,7 @@ void inorder(Tree tree)
     if (tree)
     {
         inorder(tree->left);
-        std::cout << item;
+        std::cout << tree->item;
         inorder(tree->right);
     }
 }
@@ -178,7 +174,7 @@ void postorder(Tree tree)
     {
         postorder(tree->left);
         postorder(tree->right);
-        std::cout << item;
+        std::cout << tree->item;
     }
 }
 

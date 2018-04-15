@@ -56,7 +56,11 @@ void printAll( WordSet &wset )
 
 WordSet union_( WordSet &set1 , WordSet &set2 )
 {
-
+    WordSet S3 = create();
+    while(!set::isEmpty(set1))
+    {
+        set::insert(S3,set1->item);
+    }
 }
 
 WordSet intersect( WordSet &set1 , WordSet &set2 )
