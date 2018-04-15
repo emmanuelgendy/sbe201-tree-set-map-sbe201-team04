@@ -160,7 +160,7 @@ void preorder(Tree tree)
 
 void inorder(Tree tree)
 {
-    if (tree)
+    if (!isEmpty(tree))
     {
         inorder(tree->left);
         std::cout << tree->item;
@@ -170,22 +170,37 @@ void inorder(Tree tree)
 
 void postorder(Tree tree)
 {
-    if (tree)
+    if (!isEmpty(tree))
     {
         postorder(tree->left);
         postorder(tree->right);
         std::cout << tree->item;
     }
 }
-
 void breadthFirst(Tree tree)
 {
     std::queue<BSTNode *> Q;
     Q.push(tree);
-    while (Q.empty())
+    while (!Q.empty())
     {
         BSTNode *current = Q.front();
         std::cout << current->item << std::endl;
+        if (current->left != nullptr)
+            Q.push(current->left);
+        if (current->right != nullptr)
+            Q.push(current->right);
+        Q.pop();
+    }
+}
+std::queue<BSTNode *> q; //special for set
+void BreadthFirst(Tree tree)
+{
+    std::queue<BSTNode *> Q;
+    Q.push(tree);
+    while (!Q.empty())
+    {
+        BSTNode *current = Q.front();
+        q.push(current);
         if (current->left != nullptr)
             Q.push(current->left);
         if (current->right != nullptr)
