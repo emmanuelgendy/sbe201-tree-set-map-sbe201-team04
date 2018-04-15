@@ -45,7 +45,7 @@ void insert(WordSet &wset, std::string new_item)
 
 void printAll(WordSet &wset)
 {
-    if (wset)
+    if (!(set::isEmpty(wset)))
     {
         printAll(wset->left);
         std::cout << wset->item << std::endl;
@@ -57,7 +57,7 @@ WordSet union_(WordSet &set1, WordSet &set2)
 {
     WordSet S3 = create();
     bst::BSTNode *current;
-    if (bst::q.empty)
+    if (bst::q.empty())
     {
         bst::BreadthFirst(set1);
         bst::BreadthFirst(set2);
@@ -80,7 +80,7 @@ WordSet intersect(WordSet &set1, WordSet &set2)
 {
     WordSet S3 = create();
     bst::BSTNode *current;
-    if (bst::q.empty)
+    if (bst::q.empty())
     {
         bst::BreadthFirst(set1);
     }
